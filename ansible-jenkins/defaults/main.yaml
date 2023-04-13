@@ -1,0 +1,21 @@
+jenkins_pkgs:
+  - openjdk-11-jre
+  - openjdk-11-jdk
+  - jenkins
+jenkins_user: "admin"
+jenkins_url: "http://localhost:8080"
+jk_plugins:
+  # configuration-as-code:
+  #   enabled: true
+  # structs:
+  #   enabled: True
+  folders:
+    enabled: True
+  script-security:
+    enabled: True
+  branch-api:
+    enabled: True
+  job-dsl:
+    version: 1.79
+    enabled: true
+    pinned: true

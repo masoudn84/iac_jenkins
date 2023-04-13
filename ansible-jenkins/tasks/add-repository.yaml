@@ -1,0 +1,24 @@
+---
+- name: get jenkins Apt-Key
+  get_url:
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+    dest: /usr/share/keyrings/jenkins-keyring.asc
+- name: Add an apt key by id from a keyserver
+  ansible.builtin.apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 5BA31D57EF5975CA
+- name: Add an Apt signing key, uses whichever key is at the URL
+  ansible.builtin.apt_key:
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+    state: present
+
+#- name: add key
+#  shell: apt-key adv --keyserver keyserver.ubuntu.com  --recv-keys 5BA31D57EF5975CA
+- name: Add Jenkins repository
+  apt_repository:
+    repo: deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/
+    state: present
+    filename: jenkins
+
+
+  

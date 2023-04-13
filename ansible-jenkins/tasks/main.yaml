@@ -1,0 +1,4 @@
+---
+- import_tasks: add-repository.yaml
+- import_tasks: install_packages.yaml
+- import_tasks: install_plugins.yaml

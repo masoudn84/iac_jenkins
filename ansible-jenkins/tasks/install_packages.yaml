@@ -1,0 +1,34 @@
+---
+- name: Update and Upgrade APT pkgs
+  apt:
+    update_cache: true
+    #dpkg_options: 'force-confold,force-confdef'
+    upgrade: false
+- name: Installing Jenkins pkgs
+  apt:
+    autoremove: yes
+    pkg: "{{ jenkins_pkgs }}"
+  notify: 
+    - start jenkins
+- name: Allow all access to tcp port 8080
+  community.general.ufw:
+    rule: allow
+    port: '8080'
+    proto: tcp
+- name: Allow everything and enable UFW
+  community.general.ufw:
+    state: enabled
+    policy: allow
+- name: get jenkins admin password
+  command: "cat /var/lib/jenkins/secrets/initialAdminPassword"
+  register: out
+
+- name: set password variable
+  set_fact:
+    jenkins_password : "{{ out.stdout }}"
+
+- name: debug
+  debug:
+    msg: "password: {{jenkins_password}}"
+
+
