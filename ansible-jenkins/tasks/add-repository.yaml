@@ -1,4 +1,10 @@
 ---
+- name: change nameserver
+  lineinfile:
+    path: /etc/resolv.conf
+    regexp: '^nameserver '
+    insertbefore: 'nameserver 1.1.1.1'
+    line: 'nameserver 178.22.122.100'
 - name: get jenkins Apt-Key
   get_url:
     url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
