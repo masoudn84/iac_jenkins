@@ -15,6 +15,7 @@
     url: "{{ jenkins_url }}"
     name: "{{ item.key }}"
     version: "{{ item.value['version'] }}"
+    with_dependencies: yes
   register: jenkins_plugin_versioned
   when: >
     'version'  in item.value
