@@ -21,4 +21,4 @@ jk_plugins:
     pinned: true
   gitlab-plugin:
     enabled: True
-    version: 1.7.11
+
