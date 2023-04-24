@@ -20,5 +20,5 @@ jk_plugins:
     enabled: true
     pinned: true
   gitlab-plugin:
-    enabled: True
+    enabled: true
 
