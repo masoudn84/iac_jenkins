@@ -8,5 +8,5 @@ plugins:
     - "@semantic-release/changelog"
     - "@semantic-release/github"
     - "@semantic-release/git"
-    - assets:
-       - CHANGELOG.md
+assets:
+    - CHANGELOG.md
