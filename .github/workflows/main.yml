@@ -35,6 +35,7 @@ jobs:
     release:
         needs: test
         runs-on: ubuntu-latest
+        permissions: read-all|write-all
         if: github.event_name == 'push'
         steps:
             - uses: actions/checkout@v3
