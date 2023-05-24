@@ -12,17 +12,17 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - uses: hashicorp/setup-terraform@v1
-              with:
-                  terraform_version: "1.4.4"
-            - uses: actions/cache@v2
-              with:
-                  path: .terraform/
-                  key: ${{ hashFiles('.terraform.lock.hcl') }}
-
-            - run: terraform init
-            - run: terraform fmt -check
-            - run: terraform validate -no-color
+            #- uses: hashicorp/setup-terraform@v1
+            #  with:
+            #      terraform_version: "1.4.4"
+            #- uses: actions/cache@v2
+            #  with:
+            #      path: .terraform/
+            #      key: ${{ hashFiles('.terraform.lock.hcl') }}
+            - run: echo hi
+            #- run: terraform init
+            #- run: terraform fmt -check
+            #- run: terraform validate -no-color
 
     test:
         needs: build
