@@ -41,7 +41,7 @@ jobs:
           pip install wheel
           pip install twine
 
-      - name:Continued:
+      - name: Continued
         run: cp .github/.releaserc.yml .
       - name: Install Semantic Release and plugins
         run: npm install -g semantic-release @semantic-release/changelog @semantic-release/git
