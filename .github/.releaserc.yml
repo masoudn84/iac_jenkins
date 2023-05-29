@@ -1,4 +1,5 @@
 tagFormat: "${version}"
+repositoryUrl: https://github.com/masoudn84/iac_jenkins.git
 branches:
     - "+([0-9])?(.{+([0-9]),x}).x"
     - "main"
